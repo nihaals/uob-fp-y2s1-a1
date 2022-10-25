@@ -32,6 +32,5 @@ equals :: (Enum a, Bounded a, Eq b) => (a -> b) -> (a -> b) -> Bool
 equals = undefined
 
 {- Question 5 -}
-
 babylonianPalindromes :: [Integer]
 babylonianPalindromes = undefined
