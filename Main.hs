@@ -31,7 +31,7 @@ isHighlyDivisible :: Int -> Bool
 isHighlyDivisible n = all (\x -> n `mod` x == 0) [2 .. 12]
 
 highlyDivisible :: Int -> [Int]
-highlyDivisible n = [x | x <- [1 .. n], isHighlyDivisible x]
+highlyDivisible n = take n [x | x <- [1 ..], isHighlyDivisible x]
 
 getLargestOddFactor :: Int -> Int
 getLargestOddFactor n = maximum [x | x <- [1 .. n], odd x, n `mod` x == 0]
@@ -54,7 +54,7 @@ toBase60 n = do
   out
 
 isPalindrome :: Integer -> Bool
-isPalindrome n = toBase60 n == reverse (toBase60 n)
+isPalindrome n = toBase60 n == reverse (toBase60 n) && length (toBase60 n) > 1
 
 babylonianPalindromes :: [Integer]
 babylonianPalindromes = [x | x <- [1 ..], isPalindrome x]
